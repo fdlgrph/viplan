@@ -1,0 +1,6 @@
+{
+  "name": "Visivine Plan",
+  "description": "Sistem Manajemen Jadwal & Kolaborasi Campaign Kreator Modern dengan integrasi sinkronisasi cloud aman.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
