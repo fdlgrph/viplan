@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (.dark &);
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+}
+
+:root {
+  --bg-gradient-start: #eef2f6; /* High quality Light Slate-100 */
+  --bg-gradient-end: #dce6f1; /* Soft Light Blue/Indigo mix */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: rgba(5, 15, 40, 0.06);
+  --glass-glow: rgba(59, 130, 246, 0.12);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  color-scheme: light;
+}
+
+.dark {
+  --bg-gradient-start: #050B18; /* Exact deep space blue color from Frosted Glass theme */
+  --bg-gradient-end: #0a142c;   /* Matching deep gradient end */
+  --glass-bg: rgba(255, 255, 255, 0.04); /* bg-white/5 as specified in Frosted Glass theme */
+  --glass-border: rgba(255, 255, 255, 0.08); /* border border-white/10 as specified */
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  --glass-glow: rgba(59, 130, 246, 0.08);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: background 0.5s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.glass-panel-glow {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 40px 0 var(--glass-shadow), 0 0 20px 2px var(--glass-glow);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  backdrop-filter: blur(4px);
+}
+
+.dark .glass-input {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #3b82f6; /* Blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Custom Scrollbar for modern looks */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.4);
+}
+
+/* Explicit placeholder styles for contrast */
+::placeholder {
+  color: #64748b;
+  opacity: 0.65;
+}
+.dark ::placeholder {
+  color: #94a3b8;
+  opacity: 0.55;
+}
+
+/* Base style overrides for native select options to prevent unreadable text */
+select option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+.dark select option {
+  background-color: #050b18; /* exact Frosted Glass deep blue background */
+  color: #f8fafc;
+}
+
+/* General improvements for form inputs in light/dark themes */
+.glass-input {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.dark .glass-input {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
